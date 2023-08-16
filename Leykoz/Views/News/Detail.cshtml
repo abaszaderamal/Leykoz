@@ -1,0 +1,56 @@
+﻿@model NewsDetailVM
+<main class="_container">
+
+    <div class="blogs__box">
+
+        <div class="blogs__left">
+
+            <div class="blogs__head">
+                <h1 class="slogan">@Model.News.Name</h1>
+                <div class="blog__date">
+                    <img src="./src/img/browse_gallery.svg" alt="">@Model.News.CreatedDate.ToString("dd MMMM yyyy", new CultureInfo("Az"))
+                </div>
+            </div>
+
+            <img class="img" src="~/src/img/@Model.News.ImageFile" alt="">
+            <div class="blogcontent">
+                <p>@Html.Raw(Model.News.Contetnt)</p>
+            </div>
+
+            @* <p>@Html.Raw(Model.News.Title)</p> *@
+
+            @* <img class="img" src="./src/img/Rectangle647.jpg" alt=""> *@
+
+
+
+        </div>
+
+        <div class="blogs__right">
+
+            <span>Başqa Xəbərlər</span>
+
+            @foreach (var item in Model.LastNews)
+            {
+                <a asp-action="Detail" asp-controller="News" asp-route-id="@item.Id">
+                    <div class="blogs__change">
+
+                        <div class="top">
+                            <img src="~/src/img/@item.ImageFile" alt="">
+                        </div>
+
+                        <div class="bottom">
+                            <p>@item.Name</p>
+                            <div class="blog__date">
+                                <img src="./src/img/browse_gallery.svg" alt="">@item.CreatedDate.ToString("dd MMMM yyyy", new CultureInfo("Az"))
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+            }
+
+        </div>
+
+    </div>
+
+</main>

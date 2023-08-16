@@ -1,0 +1,37 @@
+﻿<h1>testing</h1>
+
+
+@* @RenderSection("scripts", required: false) *@
+
+<textarea id="News_Body" name="cavid"></textarea>
+
+ 
+    <script src="https://cdn.ckeditor.com/ckeditor5/22.0.0/classic/ckeditor.js"></script>
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#News_Body'),
+                {
+                    language: 'fa',
+                    ckfinder: { uploadUrl: '/index/UploadImage' },
+                    
+                })
+            .catch(error => { console.error(error); }); 
+    </script>
+ 
+
+@* @section scripts{ *@
+    @* <script src="https://cdn.ckeditor.com/4.10.1/standard/ckeditor.js"></script> *@
+    @* <script> *@
+    @* *@
+    @*     CKEDITOR.replace('cavid', { *@
+    @*         customConfig: '/js/CustomConfig.js' *@
+    @*     }); *@
+    @*      *@
+    @*      *@
+    @*     CKEDITOR.editorConfig = function (config) {    *@
+    @*         config.removeDialogTabs = 'image:advanced;image:Link;link:advanced;link:upload';    *@
+    @*         config.filebrowserImageUploadUrl = '/adminpanel/test' //Action for Uploding image   *@
+    @*     }; *@
+    @* *@
+    @* </script> *@

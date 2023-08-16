@@ -1,0 +1,133 @@
+﻿@model Paginate<ReportAmount>
+@{
+    int count = ((Model.CurrentPage - 1) * 10) + 1;
+}
+<main>
+
+    <div id="report">
+        <div class="_container">
+
+            <div class="top">
+
+                <h1>Hesabat</h1>
+
+                <p>Birliyimizin əsas missiyası cəmiyyətimizi leykemiya xəstəliyi (qan xərçəngi) haqqında maarifləndirmək və bu xəstəliklə mübarizə aparan uşaqlara dəstək proqramları üçün vəsait toplamaqdır. Məqsədimiz uşaqları vəBirliyimizin əsas missiyası cəmiyyətimizi leykemiya xəstəliyi (qan xərçəngi) haqqında maarifləndirmək və bu xəstəliklə mübarizə aparan uşaqlara dəstək proqramları üçün vəsait toplamaqdır.</p>
+
+            </div>
+
+            <div class="bottom">
+
+                @foreach (var reportAmount in Model.Items)
+                {
+                    <div class="report__box">
+
+                        <div class="top">
+                            @if (reportAmount.Report.IsPublic)
+                            {
+                                <h1>
+                                    @{ string fullName = reportAmount.Report.Name + " " + reportAmount.Report.SurName; }
+                                    @fullName
+                                </h1>
+                            }
+                            else
+                            {
+                                <h1>
+                                    @reportAmount.Report.PrivateName
+                                </h1>
+                            }
+                        </div>
+
+                        <p>@((int)reportAmount.Amount) AZN</p>
+
+                        <span>@reportAmount.CreatedAt.ToString("dd MMMM yyyy", new CultureInfo("Az"))</span>
+
+                    </div>
+                }
+
+            </div>
+
+        </div>
+        <style>
+        .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;        }
+        
+        .pagination a {
+          color: black;
+          float: left;
+          padding: 8px 16px;
+          text-decoration: none;
+          transition: background-color .3s;
+        }
+        
+        .pagination a.active {
+          background-color: #E2BF14;
+          color: white;
+        }
+        
+        .pagination a:hover:not(.active) {background-color: #ddd;}
+        </style>
+        <div class="pagination">
+            @if (@Model.AllPageCount > 1)
+            {
+ 
+              {
+                    if (Model.CurrentPage < 1)
+                    {
+                        Model.CurrentPage = 1;
+                    }
+
+                    int PageLeft = 3;
+                    int PagesRight = 3;
+
+                    var fromPage = Math.Max(1, Model.CurrentPage - PageLeft);
+                    var toPage = Math.Min(Model.AllPageCount, Model.CurrentPage + PagesRight);
+
+                    if (Model.AllPageCount == toPage)
+                    {
+                        toPage = Model.AllPageCount;
+                    }
+
+                    if (Model.CurrentPage > 1)
+                    {
+                        <a class="page-link" asp-route-page="@(Model.CurrentPage - 1)">
+                            &laquo;
+                        </a>
+                        if (Model.CurrentPage - 1 > 1)
+                        {
+                            <a class="page-link" asp-route-page="1">1</a>
+                        }
+                    }
+
+                    if (fromPage - 1 > 1)
+                    {
+                        <li>
+                            <a asp-route-page="@Model.CurrentPage">...</a>
+                        </li>
+                    }
+
+                    for (var i = fromPage; i <= toPage; i++)
+                    {
+                        <a class="@(Model.CurrentPage == i ? "active" : "")" asp-route-page="@i">@i</a>
+                    }
+                    if (toPage < Model.AllPageCount - 1)
+                    {
+                        <a class="page-link" asp-route-page="@Model.CurrentPage">...</a>
+                    }
+                    if (Model.AllPageCount > Model.CurrentPage)
+                    {
+                        if (Model.AllPageCount > Model.CurrentPage + 1)
+                        {
+                            <a class="page-link" asp-route-page="@(Model.AllPageCount)">@Model.AllPageCount</a>
+                        }
+                        <a class="page-link" asp-route-page="@(Model.CurrentPage + 1)">&raquo;</a>
+                    }
+                }
+            }
+            
+        </div>
+    </div>
+
+
+</main>

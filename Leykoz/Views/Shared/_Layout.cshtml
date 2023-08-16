@@ -1,0 +1,250 @@
+﻿@using Microsoft.AspNetCore.Http
+ 
+@{
+    Dictionary<string, string> settings = ViewBag.Setting;
+ 
+}
+
+
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="~/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="~/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="~/dist/styles/style.min.css">
+    <link rel="icon" href="~/src/img/leykoz-logo.svg">
+    <title>Leykoz</title>
+</head>
+<body>
+<header>
+    <nav class="navbar _container">
+        <div class="logo">
+            <a asp-action="Index" asp-controller="Home">
+                <img src="~/src/img/leykoz-logo.svg" alt="">
+            </a>
+        </div>
+        <ul class="nav__items">
+            <li class="nav__list">
+                <a  href="https://leykoz.az#About"   class="nav__links">Biz kimik</a>
+            </li>
+            <li class="nav__list">
+                <a asp-action="Index" asp-controller="News" class="nav__links">Xəbərlər</a>
+            </li>
+            <li class="nav__list">
+                <a asp-action="Index" asp-controller="Product" class="nav__links">Leykoz Store</a>
+            </li>
+            <li class="nav__list">
+                <a asp-controller="InfoSlide" asp-action="Index" class="nav__links">Qəhrəmanlarımız</a>
+            </li>
+        </ul>
+        <div class="nav__btn">
+            <img class="opensidebar" src="~/src/img/Frame782423.svg" alt="">
+        </div>
+    </nav>
+
+</header>
+<div class="sidebarDesktop">
+    <div class="sideopening">
+        <div class="_container">
+            <div class="sidebar">
+                <div class="top">
+                    <div class="left">
+                        <a asp-action="Index" asp-controller="Home">
+                            <img src="~/src/img/leykoz-logo.svg" alt="">
+                        </a>
+                    </div>
+                    <div class="right">
+                        <img class="closeside" src="~/src/img/Frame 7825.svg" alt="">
+                    </div>
+                </div>
+                <div class="bottom">
+                    <div class="left">
+
+                        <div class="contact">
+                            <div class="mobilenumber text__content">
+                                <span>Mobil nömrə</span>
+                                <p>
+                                    <a href="tel:@settings["phone"]">
+                                        @settings["phone"]
+                                    </a>
+                                </p>
+                            </div>
+
+                            <div class="addres text__content">
+                                <span>Ünvan</span>
+                                <p>  @settings["address"]</p>
+                            </div>
+
+                            <div class="email text__content">
+                                <span>E-poçt ünvanı</span>
+                                <p>
+                                    <a href="mailto:@settings["email"]">@settings["email"]</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="socialmedia">
+                            <span class="media">
+                                <a href="@settings["fb"]">Facebook</a>
+                            </span>
+                            <span class="media">
+                                <a href="@settings["insta"]">Instagram</a>
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="right">
+                        <div class="menu">
+                            <p>
+                                <a asp-action="Index" asp-controller="Home"><span>01</span>Ana səhifə</a>
+                            </p>
+                            <p>
+                                <a asp-action="Index" asp-controller="Product"><span>02</span>Leykoz Store</a>
+                            </p>
+                            <p>
+                                <a href="@Html.Raw(settings["card2"])"><span>03</span>Könüllü ol</a>
+                            </p>
+                            <p>
+                                <a href="@Html.Raw(settings["card3"])"><span>04</span>Donor ol</a>
+                            </p>
+                            <p>
+                                <a asp-action="Index" asp-controller="News"><span>05</span>Xəbərlər</a>
+                            </p>
+                            <p>
+                                <a asp-controller="Report" asp-action="Index"><span>06</span>Hesabat</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<main>
+
+    @RenderBody()
+
+</main>
+
+<footer>
+    <div class="_container">
+
+        <div class="top">
+
+            <div class="left">
+                <img src="~/src/img/leykoz-logo.svg" alt="">
+                @Html.Raw(settings["footertxt"])
+                <ul class="icons__bars">
+                    <li class="icons">
+                        <a href="@settings["fb"]">
+                            <img src="~/src/img/Facebook.svg" alt="">
+                        </a>
+                    </li>
+                    <li class="icons">
+                        <a href="@settings["twit"]">
+                            <img src="~/src/img/Twitter.svg" alt="">
+                        </a>
+                    </li>
+                    <li class="icons">
+                        <a href="@settings["insta"]">
+                            <img src="~/src/img/Instagram.svg" alt="" style="display: inline !important;">
+                        </a>
+                    </li>
+                    <li class="icons">
+                        <a href="@settings["linkedin"]">
+                            <img src="~/src/img/LinkedIn.svg" alt="">
+                        </a>
+                    </li>
+                    <li class="icons">
+                        <a href="@settings["youtube"]">
+                            <img src="~/src/img/YouTube.svg" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="right">
+
+                <ul>
+                    <li id="Heading">
+                        <a href="https://leykoz.az#About"> Biz Kimik</a>
+                       
+                    </li>
+                    <li>
+                        <a href="https://leykoz.az#About">Haqqımızda</a>
+                    </li>
+                    @* <li> *@
+                    @*     <a href="">Pricing</a> *@
+                    @* </li> *@
+                    <li>
+                        <a href="https://leykoz.az#Mission">Missiyamız</a>
+                    </li>
+                    <li>
+                        <a href="https://leykoz.az#Target">Hədəflərimiz</a>
+                    </li>
+                    <li>
+                        <a   href="https://leykoz.az#Event">Tədbirlərimiz</a>
+                    </li>
+                </ul>
+
+                <ul>
+                    <li id="Heading">Dəstək Ol</li>
+                    <li>
+                        <a href="@Html.Raw(settings["card1"])">Maddi yardım et</a>
+                    </li>
+                    <li>
+                        <a href="@Html.Raw(settings["card3"])">Donor ol</a>
+                    </li>
+                    @* <li> *@
+                    @*     <a href="">Partnyor</a> *@
+                    @* </li> *@
+                    <li>
+                        <a href="@Html.Raw(settings["card2"])">Könüllü ol</a>
+                    </li>
+                </ul>
+
+
+                <ul>
+                    <li id="Heading">Əlaqə</li>
+
+                    <li>
+                        <img src="~/src/img/Email.svg" alt=""><a href="mailto:@settings["email"]">@settings["email"]</a>
+                    </li>
+
+                    <li>
+                        <img src="~/src/img/Phone.svg" alt=""><a href="tel:@settings["phone"]">@settings["phone"]</a>
+                    </li>
+
+                    <li><img src="~/src/img/Spacer Icon Wrapper.svg" alt="">@Html.Raw(@settings["address"])</li>
+                </ul>
+
+            </div>
+
+
+        </div>
+
+        <div class="bottom">
+            <div class="left">
+                <p>Copyright © @DateTime.Now.Year</p>
+            </div>
+            <div class="right">
+                <p>Powered by <a href="https://www.birainy.com/">BIRAINY</a></p>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+
+</body>
+
+@* scripts *@
+
+@* <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> *@
+
+<script src="~/src/script/main.js"></script>
+@* <script src="~/src/script/app.js"></script> *@
+</html>

@@ -1,0 +1,76 @@
+﻿@{
+    Dictionary<string, string> settings = ViewBag.Setting;
+ 
+}
+        <div class="_container" id="product">
+
+            <div class="top">
+                <div class="left">
+                    <p>Qəhrəmanlarımıza ümid olun</p>
+                </div>
+                <div class="right">
+                    <p>Məhsullarımızı satın alaraq kiçik qəhrəmanlarımıza dəstək ola bilərsiniz. Bütün gəlirlər leykemiyadan əziyyət çəkən uşaqlar üçün sərf olunacaq.</p>
+                </div>
+            </div>
+
+            <img src="./src/img/c9d5e34a46b3d5d836403321c96bfe3a.jpeg" alt="">
+
+            <div class="bottom">
+
+                <h1>Məhsullar</h1>
+
+                <div id="productsallbox" class="products__box">
+                    
+                </div>
+                
+
+
+            </div>
+
+
+
+        </div>
+
+
+    <div id="product__popup">
+        <div class="product__popup__container">
+            <div class="popup__left">
+                <div class="popup__icon">
+                    <img id="closeproduct" src="./src/img/close-button.svg" alt="">
+                </div>
+                <div class="popup__top">
+                    <div class="popup__text">
+                        <h1>Məhsul adı</h1>
+                        <p class="productcontent">
+                            Birliyimizin əsas missiyası cəmiyyətimizi leykemiya xəstəliyi (qan xərçəngi) haqqında maarifləndirmək və bu xəstəliklə mübarizə aparan uşaqlara dəstək proqramları üçün vəsait toplamaqdır. Məqsədimiz uşaqları və
+                        </p>
+                    </div>
+                    <div class="popup__price">
+                        <p>140 AZN</p>
+                    </div>
+                </div>
+                <div class="popup__bottom">
+                    <div class="popup__card">
+                        <div class="card__top">
+                            <p>Satın almaq üçün əlaqə saxlayın:</p>
+                        </div>
+                        <div class="card__bottom">
+                            <div class="card__icon">
+                                <img src="./src/img/call.svg" alt="">
+                            </div>
+                            <div class="card__phone">
+                                <p>@settings["phone"]</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popup__right">
+                <div class="popup__img">
+                    <img src="./src/img/product.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="~/src/script/product.js"></script>

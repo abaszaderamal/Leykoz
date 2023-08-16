@@ -1,0 +1,72 @@
+﻿@model List<Target>  
+@{
+    int count = 1;
+}
+<!-- ============================================================== -->
+<!-- Start Page Content here -->
+<!-- ============================================================== -->
+
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body table-responsive">
+                            <h4 class="m-t-0 header-title mb-4">
+                                <b>Hədəflərimiz</b>
+                            </h4>
+                            <a class="btn btn-info waves-effect width-md waves-light my-2" asp-action="Create" style="color:#ffffff  ">Əlavə Et</a>
+                            <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+
+                                <thead>
+                                <tr>
+                                    <th>№</th>
+                                    <th>Hədəf</th>
+                                    <th>Parametrlər</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                @foreach (var target in Model)
+                                {
+                                    <tr>
+                                        <td>@count</td>
+                                        <td>@Html.Raw(target.Content)</td>
+                                        <td>
+                                            <a class="btn btn-icon waves-effect waves-light btn-purple" asp-action="Edit" asp-route-id="@target.Id">
+                                                <i class="mdi mdi-pencil-outline"></i>
+                                            </a>
+                                            <a class="btn btn-icon waves-effect waves-light btn-danger" asp-action="Delete" asp-route-id="@target.Id">
+                                                <i class="mdi mdi-delete-outline"></i>
+                                            </a>
+                                        </td>
+
+                                    </tr>
+
+                                    count++;
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- end container-fluid -->
+
+    </div>
+    <!-- end content -->
+    <!-- Footer Start -->
+
+    <!-- end Footer -->
+
+</div>
+
+<!-- ============================================================== -->
+<!-- End Page content -->
+<!-- ============================================================== -->

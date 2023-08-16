@@ -1,0 +1,90 @@
+﻿@model SettingVM
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <h4 class="page-title">Form Validation</h4>
+                        <div class="page-title-right">
+                            <ol class="breadcrumb p-0 m-0">
+                                <li class="breadcrumb-item">
+                                    <a href="#">Velonic</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a href="#">Forms</a>
+                                </li>
+                                <li class="breadcrumb-item active">Form Validation</li>
+                            </ol>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="header-title mb-4">Basic Form</h4>
+                            @* <div class="alert-danger"  asp-validation-summary="All"  ></div> *@
+                            <form class="parsley-examples" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label asp-for="Value">
+                                        Value
+                                        <span class="text-danger">
+                                            * <span asp-validation-for="Value" class="text-danger"></span>
+                                        </span>
+                                    </label>
+                                    <textarea  asp-for="Value" value="@Model.Value" id="News_Body"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-success waves-effect width-md waves-light">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- end card -->
+                </div>
+                <!-- end col -->
+
+            </div>
+
+        </div>
+        <!-- end container-fluid -->
+
+    </div>
+    <!-- end content -->
+
+ 
+
+</div>
+@section scripts{
+ 
+     
+
+<script src="https://cdn.ckeditor.com/ckeditor5/22.0.0/classic/ckeditor.js"></script>
+
+<script>
+ ClassicEditor
+ 	.create( document.querySelector( '#News_Body' ), {
+ 		ckfinder: {
+ 			uploadUrl: '/UploadCk/UploadImage',
+ 		}
+ 
+ 	} )
+ 	.catch( error => {
+ 		console.error( error );
+ 	} );
+        // ClassicEditor
+        //     .create(document.querySelector('#News_Body'),
+        //         {
+        //             language: 'az',
+        //             ckfinder: { uploadUrl: '/test/UploadImage' },
+        //            
+        //         })
+        //     .catch(error => { console.error(error); }); 
+</script>}

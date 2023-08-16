@@ -1,0 +1,75 @@
+﻿@model DashBoardVM
+<div class="content-page">
+    <div class="content">
+
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <h4 class="page-title">Statistika</h4>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <!--Widget-2 -->
+
+            <div class="row">
+                <div class="col-xl-3 col-sm-6">
+                    <div class="card widget-style-1 bg-pink">
+                        <div class="card-body">
+                            <div class="my-4 text-white">
+                                <i class="  fas fa-heartbeat"></i>
+                                <h2 class="my-0 font-weight-bold text-white"><span data-plugin="counterup">@Model.SaviorCount</span></h2>
+                                <div>Xilaskarlar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-sm-6">
+                    <div class="card widget-style-1 bg-warning">
+                        <div class="card-body">
+                            <div class="my-4 text-white">
+                                <i class="mdi mdi-cart"></i>
+                                <h2 class="my-0 text-white"><span data-plugin="counterup">@Model.ProductCount</span></h2>
+                                <div>Məhsullar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-sm-6">
+                    <div class="card widget-style-1 bg-info">
+                        <div class="card-body">
+                            <div class="my-4 text-white">
+                                <i class="mdi mdi-account-multiple"></i>
+                                <h2 class="my-0 text-white"><span data-plugin="counterup">@Model.InfoSliderCount</span></h2>
+                                <div>Uşaqlar</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-sm-6">
+                    <div class="card widget-style-1 bg-success">
+                        <div class="card-body">
+                            <div class="my-4 text-white">
+                                <i class=" fas fa-newspaper"></i>
+                                <h2 class="my-0 text-white"><span data-plugin="counterup">@Model.NewsCount</span></h2>
+                                <div>Xəbərlər</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end container-fluid -->
+</div>
+<!-- end content -->
+            

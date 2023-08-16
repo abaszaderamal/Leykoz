@@ -1,0 +1,422 @@
+﻿@model SaviorVM
+<!-- BANNER SECTION -->
+@{
+    List<Slide> slides = ViewBag.slides;
+    Dictionary<string, string> settings = ViewBag.Setting;
+}
+<main>
+<!-- BANNER SECTION -->
+<div class="banner">
+
+    <div class="banner__top">
+        <div class="info__components">
+
+            <div class="info__card__first info__card__animation">
+                <img src="./src/img/person-1.svg" alt="">
+                <p>Uşaqlara kömək etmək</p>
+            </div>
+
+            <div class="info__card__second info__card__animation__revers">
+                <img src="./src/img/person-2.svg" al t="">
+                <p>Uşaqlara kömək etmək</p>
+            </div>
+
+            <div class="info__card__third info__card__animation">
+                <img src="./src/img/person-3.svg" alt="">
+                <p>Uşaqlara kömək etmək</p>
+            </div>
+
+            <div class="info__card__fourth info__card__animation__revers">
+                <img src="./src/img/person-4.svg" alt="">
+                <p>Uşaqlara kömək etmək</p>
+            </div>
+
+        </div>
+        <div class="banner__header">
+            <h1>Leykemiya ilə Mübarizə İctimai Birliyi</h1>
+        </div>
+
+        <div class="banner__btn">
+            <a href="@settings["besupportivelink"]">
+                <button>Dəstək ol</button>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="banner_slider">
+
+        <div class="center-slider">
+
+            @foreach (var slide in slides)
+            {
+                <div>
+                    <div class="items__main">
+
+                        <img src="~/src/img/@slide.ImageFile" alt="">
+
+                    </div>
+                </div>
+            }
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+<!--SUPPORT SECTION-->
+<div class="support _container">
+
+    <div class="support__left">
+        <h1>Əziz dost!</h1>
+    </div>
+    <div class="support__right">
+        @Html.Raw(settings["fmsg"])
+        <a href="@settings["besupportivelink"]">
+            <button type="submit">Dəstək Ol</button>
+        </a>
+    </div>
+
+</div>
+
+<!--ABOUT SECTION-->
+<div id="About" class="about _container">
+    <div class="about__left">
+        <div class="about__header">
+            <h1>Haqqımızda</h1>
+        </div>
+        <div class="about__text">
+            @Html.Raw(settings["about"])
+        </div>
+        <div class="about__btn">
+            <a href="@settings["videoplink"]">
+                <button class="btn">Video təqdimat</button>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="about__right">
+        <div class="photo__main__container">
+            <div class="photo__container__first">
+                <div class="photo-1">
+                    <img src="./src/img/photo1.png" alt="">
+                </div>
+            </div>
+            <div class="photo__container__second">
+                <div class="photo-2">
+                    <img src="./src/img/photo2.png" alt="">
+                </div>
+                <div class="photo-3">
+                    <img src="./src/img/photo3.png" alt="">
+                </div>
+            </div>
+            <div class="photo__container__third">
+                <div class="photo-4">
+                    <img src="./src/img/photo4.png" alt="">
+                </div>
+                <div class="photo-5">
+                    <img src="./src/img/photo5.png" alt="">
+                </div>
+            </div>
+            <div class="photo__container__fourth">
+                <div class="photo-6">
+                    <img src="./src/img/photo6.png" alt="">
+                </div>
+                <div class="photo-7">
+                    <img src="./src/img/photo7.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Select Box Section-->
+<div class="select__options _container">
+
+    <a href="@Html.Raw(settings["card1"])">
+        <div class="money__box">
+            <img src="~/src/img/payments.svg" alt="">
+            <h1>Maddi yardım et </h1>
+        </div>
+    </a>
+
+    <a href="@Html.Raw(settings["card2"])">
+        <div class="volunteer__box">
+            <img src="~/src/img/volunteer_activism.svg" alt="">
+            <h1>Könüllü ol</h1>
+        </div>
+    </a>
+
+    <a href="@Html.Raw(settings["card3"])">
+        <div class="donor__box">
+            <img src="~/src/img/bloodtype.svg" alt="">
+            <h1>Donor ol</h1>
+        </div>
+    </a>
+
+</div>
+
+<!-- Slider support -->
+<div class="support__slider _container" id="blur">
+
+    <h1>Onların yardımınıza ehtiyacı var</h1>
+
+    <span id="pagecount">01</span>
+    <span id="pagecountfinal">10</span>
+
+    <div class="support_sliders">
+
+
+    </div>
+    <a asp-controller="InfoSlide" asp-action="Index">
+        <button class="morebtn">
+            Daha Çox
+        </button>
+    </a>
+
+</div>
+
+<!--MISSIONS SECTION-->
+<div id="Mission" class="missions _container">
+
+    <div class="missions__top">
+        <h1>Əsas missiyamız cəmiyyətimizi leykemiya xəstəliyi haqqında maarifləndirməkdir.</h1>
+    </div>
+
+    <div class="missions__bottom">
+        <div class="missions__bottom__left">
+            <h1>Missiyamız</h1>
+        </div>
+        <div class="missions__bottom__right">
+            <div class="missions__text">
+                @Html.Raw(settings["mission"])
+            </div>
+
+            <div class="missions__btn">
+                <a href="@settings["besupportivelink"]">
+                    <button>Dəstək Ol</button>
+                </a>
+            </div>
+
+            <div class="missions__iframe">
+                <iframe src="@Html.Raw(settings["youtublelink"])" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!--TARGET SECTION-->
+<div id="Target" class="target _container">
+    <div class="target__header">
+        <h1>Hədəflərimiz</h1>
+    </div>
+    <div class="target__main">
+        <ul class="target__text">
+            @foreach (Target target in ViewBag.Targets)
+            {
+                <div class="target__first">
+                    <img src="./src/img/circle.svg" alt="">
+                    <li>@Html.Raw(target.Content)</li>
+                </div>
+            }
+        </ul>
+    </div>
+</div>
+
+<!--EVENT SECTION-->
+<div id="Event" class="event _container">
+    <div class="event__header">
+        <h1>Tədbirlərimiz</h1>
+    </div>
+    <div class="event__main">
+        @foreach (Event item in ViewBag.Events)
+        {
+            <div class="event__card-first">
+                <h1>@Html.Raw(item.Title)</h1>
+                <p>@Html.Raw(item.Content)</p>
+                <h3>@item.EventDate.ToString("dd MMMM yyyy", new CultureInfo("Az"))</h3>
+            </div>
+        }
+    </div>
+</div>
+
+<!--NEWS SECTION-->
+<div class="news _container">
+    <div class="news__header">
+        <h1>Xəbərlər</h1>
+    </div>
+    <div class="news__slider">
+        @foreach (News news in ViewBag.News)
+        {
+            <div>
+                <div class="news__card">
+                    <div class="card__image">
+                        <img src="~/src/img/@news.ImageFile" alt="">
+                    </div>
+                    <div class="card__header">
+                        <h1>@news.Name</h1>
+                    </div>
+                    <div class="card__text">
+                        <p>@Html.Raw(news.Title)</p>
+                    </div>
+                    <div class="card__arrow">
+                        <a asp-action="detail" asp-controller="News" asp-route-id="@news.Id">
+                            <p>Daha Çox</p>
+                        </a>
+                        <a asp-action="detail" asp-controller="News" asp-route-id="@news.Id">
+                            <img src="./src/img/arrow.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="news__button">
+        <a asp-action="Index" asp-controller="News">
+            <button>Daha çox</button>
+        </a>
+    </div>
+</div>
+
+<!--REPORT SECTION-->
+<div class="report _container">
+    <div class="report__header">
+        <h1>
+            Birliyə daxil olmuş və xərclənmiş vəsaitlərin hesabatı
+        </h1>
+    </div>
+    <div class="report__components">
+        @foreach (ReportYearVMPlus reportyear in ViewBag.YearReports)
+        {
+            <div class="report__card">
+                <div class="card__upper">
+                    <div class="card__header">
+                        <h3>@reportyear.ReportCount Hesabat</h3>
+                    </div>
+                    <a asp-area="" asp-controller="Report" asp-action="ExportToExcel" asp-route-id="@reportyear.id">
+                        <div class="card__icon">
+                            <img src="./src/img/sim_card_download.svg" alt="">
+                        </div>
+                    </a>
+                </div>
+                <div class="card__lower">
+                    <div class="card__header">
+                        <h1>@reportyear.HeadTitle</h1>
+                    </div>
+                    <div class="card__text">
+                        <p>@reportyear.Title</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!--FORM SECTION-->
+<div class="forms__section _container">
+    <div class="forms__background">
+        <div class="forms__main">
+            <h1>Sizinlə daha çox insan həyatını xilas edə bilərik</h1>
+            <form method="post">
+                <div class="inputs__boxs">
+                    <div class="input__box">
+                        <label for="">
+                            Ad, soyad<span asp-validation-for="FullName" class="text-danger"></span>
+                        </label>
+                        <input asp-for="FullName" required  placeholder="Ad, soyad" type="text">
+                    </div>
+                    <div class="input__box">
+                        <label for="">
+                            Elektron poçt<span asp-validation-for="Email" class="text-danger"></span>
+                        </label>
+                        <input asp-for="Email" required placeholder="Elektron poçt" type="text">
+                    </div>
+                    <div class="input__box">
+                        <label for="">
+                            Əlaqə nömrəsi <span asp-validation-for="Phone" class="text-danger"></span>
+                        </label>
+                        <input asp-for="Phone" required placeholder="(+994)-" type="text">
+                    </div>
+                    <div class="input__box">
+                        <label for="">
+                            Müraciətinizin tipi<span asp-validation-for="ApplyType" class="text-danger"></span>
+                        </label>
+                        <input asp-for="ApplyType" required placeholder="Müraciətinizin tipi" type="text">
+                    </div>
+                    <label class="textarealabel" for="">
+                        Müraciətiniz<span asp-validation-for="ApplyContent" class="text-danger"></span>
+                    </label>
+                    <textarea asp-for="ApplyContent" required placeholder="Müraciətiniz"   ></textarea>
+
+                </div>
+
+
+                <div class="submit__btn">
+                    <button type="submit">Göndərin</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+ <div id="main__popup">
+     <div class="main__popup__container">
+         <div class="popup__left">
+             <div onclick="foo()" class="popup__icon">
+                 <img id="closechildirens" src="~/src/img/close-button.svg" alt="">
+             </div>
+             <div class="popup__top">
+                 <div class="popup__text">
+                     <h1>Ad Soyad</h1>
+                     <p>
+                         Birliyimizin əsas missiyası cəmiyyətimizi leykemiya xəstəliyi (qan xərçəngi) haqqında maarifləndirmək və bu xəstəliklə mübarizə aparan uşaqlara dəstək proqramları üçün vəsait toplamaqdır. Məqsədimiz uşaqları və
+                     </p>
+                 </div>
+             </div>
+             <div class="popup__bottom">
+                 <div class="popup__card">
+                     <div class="card__top">
+                         <p>Səadətdən məktub</p>
+                     </div>
+                     <div class="card__bottom">
+                         <div class="card__text">
+                             <p>
+                                 Birliyimizin əsas missiyası cəmiyyətimizi leykemiya xəstəliyi (qan xərçəngi) haqqında maarifləndirmək və bu xəstəliklə mübarizə aparan uşaqlara dəstək proqramları üçün vəsait toplamaqdır. Məqsədimiz uşaqları vəBirliyimizin əsas missiyası cəmiyyətimizi leykemiya xəstəliyi (qan xərçəngi) haqqında maarifləndirmək və bu xəstəliklə mübarizə aparan uşaqlara dəstək proqramları üçün vəsait toplamaqdır.
+                             </p>
+                         </div>
+ 
+                     </div>
+                     <div class="card__link">
+                         @* <a href="">Ardını oxu</a> *@
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="popup__right">
+             <div class="popup__img">
+                 <img src="~/src/img/child-2.png" alt="">
+             </div>
+         </div>
+     </div>
+ </div>
+
+<script>
+function foo() {
+  document.querySelector('#main__popup').style.visibility = 'hidden';
+            document.querySelector('body').style.overflow = 'visible';
+            document.querySelector('body').style.userSelect = 'all';
+}
+</script>
+</main>
+
+<script src="~/jquery/jquery.min.js"></script>
+<script src="~/jquery-validate/additional-methods.min.js"></script>
+<script src="~/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="~/slick/slick.min.js"></script>
+<script src="~/src/script/app.js"></script>
